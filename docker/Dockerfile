@@ -1,6 +1,6 @@
 # On Debian, apt-get install podman.
 # podman build -t dev .
-# podman run -it dev
+# podman run -it --rm dev
 FROM debian:12 as asd
 
 WORKDIR /home/
@@ -24,8 +24,11 @@ RUN apt-get install -y sbt
 
 RUN git clone https://github.com/nsi6000/scala-practice.git
 
+RUN sbt new scala/scala3.g8
 RUN sbt compile
+RUN sbt test
+RUN sbt run
 
 COPY ./.vimrc /etc/vim/vimrc
 
-ENTRYPOINT ["sbt","run"]
+# ENTRYPOINT ["sbt","run"]
