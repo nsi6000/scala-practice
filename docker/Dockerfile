@@ -24,10 +24,10 @@ RUN apt-get install -y sbt
 
 RUN git clone https://github.com/nsi6000/scala-practice.git
 
-RUN sbt new scala/scala3.g8
-RUN sbt compile
-RUN sbt test
-RUN sbt run
+# RUN sbt new scala/scala3.g8
+# RUN sbt compile
+# RUN sbt test
+# RUN sbt run
 
 COPY ./.vimrc /etc/vim/vimrc
 
